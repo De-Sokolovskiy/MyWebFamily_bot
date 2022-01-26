@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/De-Sokolovskiy/MyWebFamily_bot.git"
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/De-Sokolovskiy/MyWebFamily_bot#readme",
   "dependencies": {
     "dotenv": "^14.2.0",
+    "node-telegram-bot-api": "^0.56.0",
     "telegraf": "^4.6.0"
   },
   "devDependencies": {
