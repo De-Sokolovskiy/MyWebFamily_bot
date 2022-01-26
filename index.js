@@ -1,4 +1,5 @@
 const {Telegraf, session, Scenes: { WizardScene, Stage }, Markup} = require('telegraf')
+const TelegramBot = require('node-telegram-bot-api')
 require('dotenv').config() //Необходимо для запуска токена из файла указанного ниже
 const text = require('./const')
 
@@ -148,7 +149,112 @@ bot.action('btn_1', ctx => ctx.scene.enter('infoScene'))
 
 
 //ПОРТФОЛИО
-addActionBot('btn_2', false, text.text2 )
+bot.action('btn_2', async (ctx) => {
+    await ctx.answerCbQuery()//Чтобы пропадали часики загрузки в прошлой кнопке
+
+    try{
+        await ctx.replyWithPhoto({
+            source: './img/intel.png'         
+        }) 
+        await ctx.replyWithHTML('Концепт редизайна сайта брендингового агентства Intelligent Deals', {
+            reply_markup: {
+                inline_keyboard: [
+                    [
+                        {
+                            text: "Посмотреть",
+                            url: 'https://www.behance.net/gallery/133147585/Intelligent-Deals-brand-agency-redesign-website'
+                        }
+                    ]
+                ]
+            }
+        })
+
+        await ctx.replyWithPhoto({
+            source: './img/ostin.png'         
+        }) 
+        await ctx.replyWithHTML('Концепт промо-сайта интернет-магазина одежды O’STIN', {
+            reply_markup: {
+                inline_keyboard: [
+                    [
+                        {
+                            text: "Посмотреть",
+                            url: 'https://www.behance.net/gallery/133078249/OSTIN-online-clothing-store-redesign-website'
+                        }
+                    ]
+                ]
+            }
+        })
+
+        await ctx.replyWithPhoto({
+            source: './img/cifra.png'         
+        }) 
+        await ctx.replyWithHTML('Концепция сайта для Высшей школы цифровой культуры Университета ИТМО', {
+            reply_markup: {
+                inline_keyboard: [
+                    [
+                        {
+                            text: "Посмотреть",
+                            url: 'https://www.behance.net/gallery/129926473/Higher-School-of-Digital-Culture-Website'
+                        }
+                    ]
+                ]
+            }
+        })
+            
+
+        await ctx.replyWithPhoto({
+            source: './img/puls.png'         
+        }) 
+        await ctx.replyWithHTML('Проект магазина пульсометров', {
+            reply_markup: {
+                inline_keyboard: [
+                    [
+                        {
+                            text: "Посмотреть",
+                            url: 'http://desokolovskiy.ru/'
+                        }
+                    ]
+                ]
+            }
+        })
+
+        await ctx.replyWithPhoto({
+            source: './img/taxi.png'         
+        }) 
+        await ctx.replyWithHTML('Проект сервиса такси', {
+            reply_markup: {
+                inline_keyboard: [
+                    [
+                        {
+                            text: "Посмотреть",
+                            url: 'http://desokolovskiy.ru/'
+                        }
+                    ]
+                ]
+            }
+        })
+
+        await ctx.replyWithPhoto({
+            source: './img/mlg.png'         
+        }) 
+        await ctx.replyWithHTML('Сайт с генератором паролей для внутренних нужд компании', {
+            reply_markup: {
+                inline_keyboard: [
+                    [
+                        {
+                            text: "Посмотреть",
+                            url: 'http://desokolovskiy.ru/'
+                        }
+                    ]
+                ]
+            }
+        })
+
+    } catch(e) {
+        console.error(e) //если выскакивает ошибка, то она появляется в консоли
+    }   
+
+})
 
 
 //СОЦ.СЕТИ
@@ -160,13 +266,33 @@ bot.action('btn_3', async (ctx) => {
                 source: './img/social.jpeg'
             }) 
         
-        await ctx.replyWithHTML('Посмотреть наши посты в соц.сети можно здесь', Markup.inlineKeyboard([
+        await ctx.replyWithHTML('Посмотреть наши посты в соц.сети можно здесь', {
+            reply_markup: {
+                inline_keyboard: [
+                    [
+                        {
+                            text: "Вконтакте",
+                            url: 'https://m.vk.com/public209076745'
+                        },
+                        {
+                            text: "Instagram",
+                            url: 'https://www.instagram.com/my_web_family/'
+                        }
+                    ]
+                ]
+            }
+        }
+        
+        
+        /* Markup.inlineKeyboard([
             [
                 Markup.button.callback('Вконтакте', 'btn_vk'),
                 Markup.button.callback('Instagram', 'btn_instagram')
             ]
         
-        ]))
+        ]) */
+        
+        )
 
     } catch(e) {
         console.error(e) //если выскакивает ошибка, то она появляется в консоли
