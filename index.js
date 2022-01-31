@@ -211,7 +211,7 @@ bot.action('btn_2', async (ctx) => {
                     [
                         {
                             text: "Посмотреть",
-                            url: 'http://desokolovskiy.ru/'
+                            url: 'https://de-sokolovskiy.github.io/pulse/'
                         }
                     ]
                 ]
@@ -227,7 +227,7 @@ bot.action('btn_2', async (ctx) => {
                     [
                         {
                             text: "Посмотреть",
-                            url: 'http://desokolovskiy.ru/'
+                            url: 'https://de-sokolovskiy.github.io/taxi/'
                         }
                     ]
                 ]
